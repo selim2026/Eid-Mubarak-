@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EID GIFT BY Bad Boy 9993</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Hind Siliguri',sans-serif;}
+
+body{
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+color:white;
+perspective: 1000px; 
+}
+
+/* PHONE + Floating Animation */
+.phone{
+width:360px;
+height:720px;
+border-radius:40px;
+padding:10px;
+background:#000;
+box-shadow:0 0 80px rgba(255,215,0,0.5);
+animation: floatPhone 6s ease-in-out infinite;
+position: relative;
+}
+
+@keyframes floatPhone {
+0%, 100% { transform: translateY(0px) rotateX(0deg); box-shadow:0 0 80px rgba(255,215,0,0.5); }
+50% { transform: translateY(-15px) rotateX(2deg); box-shadow:0 20px 100px rgba(255,215,0,0.7); }
+}
+
+/* CALLIGRAPHY BG */
+.screen{
+width:100%;
+height:100%;
+border-radius:30px;
+position:relative;
+overflow:hidden;
+
+background:
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+url('https://images.unsplash.com/photo-1609599006353-e629aaabfeae?q=80&w=1200&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+}
+
+/* 🌙 EID ENVIRONMENT BACKGROUND */
+.eid-bg-icon {
+position: absolute;
+font-size: 14px;
+opacity: 0.3;
+z-index: 1;
+pointer-events: auto; 
+cursor: pointer; 
+filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+animation: floatBgElements linear infinite, spinIcon ease-in-out infinite alternate;
+transition: transform 0.2s, opacity 0.2s;
+}
+@keyframes floatBgElements {
+0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+20% { opacity: 0.5; }
+80% { opacity: 0.5; }
+100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
+}
+@keyframes spinIcon {
+0% { margin-left: -20px; transform: rotate(-15deg); }
+100% { margin-left: 20px; transform: rotate(15deg); }
+}
+
+/* 3D CENTER TRANSITIONS */
+.center{
+position:absolute;
+top:50%;left:50%;
+transform:translate(-50%,-50%) scale(1) rotateY(0deg);
+text-align:center;
+width:90%;
+z-index:2;
+transition:all 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+transform-style: preserve-3d;
+}
+.hidden{
+opacity:0;
+transform:translate(-50%,-60%) scale(0.6) rotateX(-20deg) rotateY(15deg);
+pointer-events:none;
+filter: blur(8px);
+}
+
+/* TEXT */
+.glow{
+font-size:20px;
+font-weight:700;
+background:linear-gradient(270deg,#FFD700,#fff,#FFD700,#ffae00);
+background-size:400%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:glowMove 6s linear infinite;
+text-shadow:0 0 25px rgba(255,215,0,0.6);
+line-height: 1.5;
+}
+@keyframes glowMove{
+0%{background-position:0%}
+100%{background-position:100%}
+}
+
+/* button + Pulse Animation */
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#FFD700,#caa400);
+color:black;
+font-weight:bold;
+margin-top:25px;
+cursor:pointer;
+transition:.4s;
+animation: pulseBtn 2s infinite;
+font-size: 15px;
+}
+button:hover{
+transform:scale(1.1) translateY(-3px);
+box-shadow:0 10px 25px rgba(255, 215, 0, 0.9);
+}
+@keyframes pulseBtn {
+0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+70% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
+100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+/* Input + Focus Effect */
+input{
+padding:12px;
+border-radius:20px;
+border:2px solid rgba(255,215,0,0.3);
+background: rgba(0, 0, 0, 0.5);
+color: #FFD700;
+width:80%;
+margin-top:15px;
+text-align:center;
+transition: 0.4s;
+font-size: 16px;
+font-weight: 600;
+}
+input::placeholder { color: rgba(255,255,255,0.6); font-weight: 400; }
+input:focus {
+outline: none;
+border-color: #FFD700;
+box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), inset 0 0 10px rgba(255, 215, 0, 0.3);
+transform: scale(1.08);
+background: rgba(0, 0, 0, 0.9);
+}
+
+/* SHAKE */
+.shake{animation:shake 0.5s;}
+@keyframes shake{
+0%, 100%{transform:translate(-50%,-50%)}
+20%, 60%{transform:translate(-55%,-50%)}
+40%, 80%{transform:translate(-45%,-50%)}
+}
+
+/* KOLA-KULI STYLES */
+.kolakuli-text {
+font-size: 18px;
+color: #FFD700;
+margin-top: 15px;
+margin-bottom: 20px;
+text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+.hug-btn {
+font-size: 70px;
+cursor: pointer;
+user-select: none;
+animation: pulseBtn 1.5s infinite;
+display: inline-block;
+transition: transform 0.2s ease-in-out;
+filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+}
+
+/* 🎶 PREMIUM AUDIO WAVE VISUALIZER */
+.visualizer {
+position: absolute;
+bottom: 35px;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+gap: 6px;
+align-items: center;
+height: 50px;
+z-index: 10;
+opacity: 0;
+transition: 1.5s ease-in-out;
+pointer-events: none;
+}
+.visualizer.active { opacity: 1; }
+
+.wave-bar {
+width: 5px;
+height: 12px;
+border-radius: 20px;
+background: linear-gradient(180deg, #fff 0%, #FFD700 50%, #caa400 100%);
+box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+animation: dynamicWave 1s infinite ease-in-out;
+}
+
+.wb-1 { animation-delay: 0.0s; animation-duration: 0.7s; }
+.wb-2 { animation-delay: 0.2s; animation-duration: 0.9s; }
+.wb-3 { animation-delay: 0.4s; animation-duration: 0.6s; }
+.wb-4 { animation-delay: 0.1s; animation-duration: 1.1s; }
+.wb-5 { animation-delay: 0.5s; animation-duration: 0.8s; } 
+.wb-6 { animation-delay: 0.3s; animation-duration: 0.7s; }
+.wb-7 { animation-delay: 0.6s; animation-duration: 1.0s; }
+.wb-8 { animation-delay: 0.2s; animation-duration: 0.9s; }
+.wb-9 { animation-delay: 0.1s; animation-duration: 0.6s; }
+
+@keyframes dynamicWave {
+0%, 100% { transform: scaleY(0.4); opacity: 0.6; box-shadow: 0 0 5px rgba(255, 215, 0, 0.3); }
+50% { transform: scaleY(3.2); opacity: 1; box-shadow: 0 0 20px #FFD700, 0 0 10px #fff; background: linear-gradient(180deg, #ffffff 0%, #ffae00 50%, #caa400 100%); }
+}
+
+/* FINAL MODERN & CINEMATIC BACKGROUND */
+#finalFull{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:radial-gradient(circle at center,#1a1400 0%,#000000 100%);
+z-index:9999;
+overflow:hidden;
+opacity: 0;
+transition: opacity 2.5s ease-in-out;
+}
+#finalFull.show { opacity: 1; }
+
+#finalFull::before {
+content: '';
+position: absolute;
+width: 350px;
+height: 350px;
+background: rgba(255, 215, 0, 0.12);
+border-radius: 50%;
+filter: blur(90px);
+animation: pulseAura 4s ease-in-out infinite alternate;
+z-index: 1;
+}
+@keyframes pulseAura {
+0% { transform: scale(0.8); opacity: 0.4; }
+100% { transform: scale(1.6); opacity: 1; }
+}
+
+/* 🌙 BIG CRESCENT MOON */
+.moon {
+width: 90px;
+height: 90px;
+border-radius: 50%;
+box-shadow: 18px 18px 0 0 #FFD700;
+position: absolute;
+top: 12%;
+opacity: 0;
+z-index: 2;
+filter: drop-shadow(0 0 20px rgba(255,215,0,0.8));
+animation: moonRise 3.5s cubic-bezier(0.2, 1, 0.2, 1) forwards 1s, floatPhone 6s ease-in-out infinite 4.5s;
+}
+@keyframes moonRise {
+0% { opacity: 0; transform: translateY(60px) scale(0.5) rotate(-30deg); }
+100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+/* ✨ PROFESSIONAL FIREFLY PARTICLES */
+.particle{
+position:absolute;
+background:#FFD700;
+border-radius:50%;
+box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+opacity:0;
+pointer-events: auto; 
+cursor: pointer; 
+animation:floatUp linear infinite, sway ease-in-out infinite alternate;
+transition: transform 0.2s, opacity 0.2s;
+}
+@keyframes floatUp{
+0% {transform:translateY(110vh) scale(0); opacity:0;}
+20% {opacity:0.9; transform:translateY(80vh) scale(1.2);}
+80% {opacity:0.9;}
+100% {transform:translateY(-10vh) scale(0.5); opacity:0;}
+}
+@keyframes sway {
+0% { margin-left: -35px; }
+100% { margin-left: 35px; }
+}
+
+/* 💵 MONEY RAIN EFFECT */
+.money-drop {
+position: absolute;
+top: -50px;
+z-index: 9998;
+animation: moneyFall linear forwards;
+user-select: none;
+pointer-events: none;
+}
+@keyframes moneyFall {
+0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+100% { transform: translateY(110vh) rotate(360deg) scale(1.2); opacity: 0; }
+}
+
+/* 💎 HIGHLY PROFESSIONAL TEXT REVEAL */
+.finalText{
+font-size:35px;
+font-weight:700;
+text-align:center;
+z-index:2;
+letter-spacing: 2px;
+line-height: 1.4;
+margin-top: 20px;
+
+background:linear-gradient(to right, #bf953f, #fff, #b38728, #fbf5b7, #aa771c);
+background-size:200% auto;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation: cinematicReveal 4s cubic-bezier(0.2, 1, 0.2, 1) forwards, premiumGradient 6s linear infinite;
+filter: drop-shadow(0px 8px 20px rgba(255, 215, 0, 0.5));
+}
+
+@keyframes cinematicReveal{
+0% { opacity: 0; transform: scale(1.8) translateY(50px) rotateX(20deg); filter: blur(25px); }
+50% { opacity: 0.6; filter: blur(8px); }
+100% { opacity: 1; transform: scale(1) translateY(0) rotateX(0deg); filter: blur(0); }
+}
+
+/* 🎁 RANDOM SALAMI BOX STYLES */
+.salami-box {
+position: relative; 
+margin-top: 20px;
+padding: 0; 
+border: 2px dashed #FFD700;
+border-radius: 20px;
+background: rgba(255, 215, 0, 0.1);
+font-size: 26px;
+font-weight: bold;
+color: #FFD700;
+text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+z-index: 10;
+opacity: 0;
+transform: scale(0.5);
+animation: popSalami 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 2.5s, glowSalami 2s infinite alternate 3.5s;
+overflow: hidden; 
+min-width: 320px;
+min-height: 70px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.salami-text-content {
+padding: 15px 30px;
+z-index: 1;
+}
+#scratchCanvas {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 2;
+cursor: pointer;
+touch-action: none; 
+}
+
+@keyframes popSalami {
+to { opacity: 1; transform: scale(1); }
+}
+@keyframes glowSalami {
+from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+to { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), inset 0 0 15px rgba(255, 215, 0, 0.4); }
+}
+
+/* 📱 WHATSAPP SHARE BUTTON */
+.wa-wrapper {
+position: relative;
+margin-top: 40px;
+z-index: 10;
+opacity: 0;
+transform: translateY(30px);
+animation: waSlideUp 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 3.5s;
+}
+
+.wa-btn {
+background: linear-gradient(45deg, #25D366, #128C7E);
+color: white;
+text-decoration: none;
+padding: 14px 35px;
+border-radius: 40px;
+font-weight: bold;
+font-size: 18px;
+display: inline-flex;
+align-items: center;
+gap: 12px;
+box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+transition: 0.4s;
+position: relative;
+}
+.wa-btn::before {
+content: '';
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+border-radius: 40px;
+border: 2px solid #25D366;
+animation: waRipple 2s infinite;
+}
+.wa-btn:hover {
+transform: scale(1.08) translateY(-4px);
+box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
+}
+@keyframes waSlideUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes waRipple {
+0% { transform: scale(1); opacity: 0.8; }
+100% { transform: scale(1.3) scaleY(1.4); opacity: 0; }
+}
+
+.watermark{
+position:absolute;
+bottom:12px;
+right:15px;
+font-size:11px;
+opacity:.5;
+letter-spacing: 1px;
+z-index: 5;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+<audio id="swooshSound" src="https://assets.mixkit.co/active_storage/sfx/3005/3005-preview.mp3"></audio>
+<audio id="magicSound" src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3"></audio>
+<audio id="popSound" src="https://assets.mixkit.co/active_storage/sfx/2688/2688-preview.mp3"></audio>
+<audio id="scratchSound" src="https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3"></audio>
+<audio id="bgMusic" loop>
+<source src="https://raw.githubusercontent.com/nafis1630/Eid-Gift-By-Nafis-Fuad-/main/Islamicsound.mp3" type="audio/mp3">
+</audio>
+
+<div class="phone">
+<div class="screen" id="mainScreen">
+
+<div id="step0" class="center">
+<h3 class="glow">তোমার নাম লিখো ✨</h3>
+<input id="name" placeholder="তোমার নাম..." autocomplete="off">
+<button onclick="start()">✨ শুরু করো</button>
+</div>
+
+<div id="step1" class="center hidden">
+<h3 id="msg1" class="glow"></h3>
+<button onclick="next(2)" id="btn1" style="display:none;">👉 এগিয়ে যাও</button>
+</div>
+
+<div id="step2" class="center hidden">
+<h3 id="msg2" class="glow"></h3>
+<button onclick="next(3)" id="btn2" style="display:none;">🫂 কোলাকুলি করুন</button>
+</div>
+
+<div id="step3" class="center hidden">
+<h3 class="glow">আগে কোলাকুলি হয়ে যাক! ✨</h3>
+<p class="kolakuli-text">ইমোজিতে <span id="tapCount" style="font-weight:bold; font-size:24px;">৩</span> বার ট্যাপ করো</p>
+<div id="hugArea" class="hug-btn" onclick="handleKolaKuli()">🫂</div>
+</div>
+
+<div class="visualizer" id="eqBars">
+  <div class="wave-bar wb-1"></div>
+  <div class="wave-bar wb-2"></div>
+  <div class="wave-bar wb-3"></div>
+  <div class="wave-bar wb-4"></div>
+  <div class="wave-bar wb-5"></div>
+  <div class="wave-bar wb-6"></div>
+  <div class="wave-bar wb-7"></div>
+  <div class="wave-bar wb-8"></div>
+  <div class="wave-bar wb-9"></div>
+</div>
+
+<div class="watermark">Created by Borsha Islam</div>
+
+</div>
+</div>
+
+<div id="finalFull">
+<div class="moon"></div>
+<h1 class="finalText"><br> তোমাকে পবিত্র ঈদুল ফিতরের শুভেচ্ছা 🕌</h1>
+
+<div id="salamiDisplay" class="salami-box">
+  <div id="salamiText" class="salami-text-content"></div>
+  <canvas id="scratchCanvas"></canvas>
+</div>
+
+<div class="wa-wrapper">
+  <a id="waShare" href="#" class="wa-btn" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+    </svg>
+    Share on WhatsApp
+  </a>
+</div>
+</div>
+
+
+<script>
+
+function playSound(id) {
+    let audio = document.getElementById(id);
+    audio.currentTime = 0;
+    audio.play().catch(()=>{});
+}
+
+function createEidEnvironment(containerId, count) {
+  const icons = ['✨', '🌙', '🌟', '🏮'];
+  const container = document.getElementById(containerId);
+  for(let i=0; i<count; i++){
+    let icon = document.createElement("div");
+    icon.className = "eid-bg-icon";
+    icon.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+    let size = Math.random() * 10 + 12; 
+    icon.style.fontSize = size + "px";
+    icon.style.left = Math.random() * 100 + "%";
+    icon.style.animationDuration = (8 + Math.random() * 10) + "s, " + (3 + Math.random() * 4) + "s"; 
+    icon.style.animationDelay = (Math.random() * 5) + "s";
+    
+    icon.onclick = function() {
+        playSound('popSound');
+        this.style.transform = "scale(1.5)";
+        this.style.opacity = "0";
+        setTimeout(() => this.remove(), 200);
+    };
+
+    container.appendChild(icon);
+  }
+}
+
+window.onload = function() {
+  createEidEnvironment("mainScreen", 15);
+};
+
+let musicStarted = false;
+function startMusic(){
+let music = document.getElementById("bgMusic");
+let eqBars = document.getElementById("eqBars");
+if(!musicStarted){
+    music.volume = 0;
+    music.play().then(()=>{
+    musicStarted = true;
+    eqBars.classList.add("active");
+    let vol = 0;
+    let fade = setInterval(()=>{
+        if(vol < 0.5){ vol += 0.02; music.volume = vol; }
+        else{ clearInterval(fade); }
+    },100);
+    }).catch(()=>{});
+}
+}
+
+function createParticles(){
+for(let i=0; i<80; i++){ 
+let p=document.createElement("div");
+p.className="particle";
+let size = Math.random() * 3 + 1;
+p.style.width = size + "px"; p.style.height = size + "px";
+p.style.left = Math.random() * 100 + "%";
+p.style.animationDuration = (4 + Math.random() * 6) + "s, " + (2 + Math.random() * 3) + "s"; 
+p.style.animationDelay = (Math.random() * 3) + "s";
+
+p.onclick = function() {
+    playSound('popSound');
+    this.style.transform = "scale(2)";
+    this.style.opacity = "0";
+    setTimeout(() => this.remove(), 200);
+};
+
+document.getElementById("finalFull").appendChild(p);
+}
+}
+
+function typeText(el, text, btnId, speed=35){
+el.innerHTML="";
+let i=0;
+document.getElementById(btnId).style.display = "none"; 
+function typing(){
+if(i<text.length){
+    el.innerHTML += text.charAt(i); i++; setTimeout(typing,speed);
+} else {
+    let btn = document.getElementById(btnId);
+    btn.style.display = "inline-block";
+    btn.style.animation = "waSlideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, pulseBtn 2s infinite 0.6s";
+}
+}
+typing();
+}
+
+/* 🌙 START (UPDATED WITH PERSONALIZED SHAYARI) */
+function start(){
+let name=document.getElementById("name").value.trim();
+if(!name){
+    let box=document.getElementById("step0");
+    box.classList.add("shake");
+    setTimeout(()=>box.classList.remove("shake"),500);
+    return;
+}
+playSound('clickSound'); 
+startMusic();
+step0.classList.add("hidden");
+step1.classList.remove("hidden");
+
+// Personalized Poetry
+const shayaris = [
+    `আকাশে উঠেছে ঈদের চাঁদ, ${name}-এর জীবনে না থাকুক কোনো অবসাদ! ✨`,
+    `মেঘলা আকাশ মেঘলা দিন, ${name}, আজ কিন্তু খুশির ঈদের দিন! 🌙`,
+    `রঙিন স্বপ্ন রঙিন আলো, ${name}-এর ঈদ কাটুক অনেক অনেক ভালো! 🕌`
+];
+let randomShayari = shayaris[Math.floor(Math.random() * shayaris.length)];
+
+typeText(msg1, randomShayari, 'btn1');
+}
+
+function next(step){
+playSound('clickSound'); 
+document.querySelectorAll(".center").forEach(e=>e.classList.add("hidden"));
+document.getElementById("step"+step).classList.remove("hidden");
+
+if(step===2){
+typeText(msg2, `এই পবিত্র দিনে আল্লাহ তোমার সব দোয়া কবুল করুন, তোমার জীবন ভরে উঠুক রহমতে। সব সময় হাসিখুশি থাকো।এই ঈদে আল্লাহ তোমার পরিবারকে সুস্থতা, শান্তি আর ভালোবাসায় ভরে দিন। ঈদ মোবারক।🌙💫`, 'btn2');
+}
+}
+
+/* 🫂 KOLA-KULI LOGIC */
+let tapsLeft = 3;
+function handleKolaKuli() {
+    if(tapsLeft <= 0) return;
+    
+    tapsLeft--;
+    playSound('popSound');
+    document.getElementById('tapCount').innerText = tapsLeft;
+    
+    let hugArea = document.getElementById('hugArea');
+    // Rotate left and right alternately
+    hugArea.style.transform = tapsLeft % 2 === 0 ? "scale(1.3) rotate(-15deg)" : "scale(1.3) rotate(15deg)";
+    setTimeout(() => {
+        if(tapsLeft > 0) hugArea.style.transform = "scale(1) rotate(0deg)";
+    }, 200);
+
+    if(tapsLeft === 0) {
+        hugArea.innerHTML = "✨";
+        hugArea.style.transform = "scale(1.5)";
+        setTimeout(() => {
+            document.getElementById("step3").classList.add("hidden");
+            nextFinal();
+        }, 600);
+    }
+}
+
+/* 💵 MONEY RAIN LOGIC */
+function startMoneyRain() {
+    const moneyItems = ['💵', '🪙', '৳', '💰'];
+    let finalFull = document.getElementById("finalFull");
+    
+    for(let i=0; i<40; i++) {
+        setTimeout(() => {
+            let m = document.createElement('div');
+            m.className = 'money-drop';
+            m.innerText = moneyItems[Math.floor(Math.random() * moneyItems.length)];
+            m.style.left = Math.random() * 100 + '%';
+            m.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            m.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            finalFull.appendChild(m);
+            
+            // Remove after falling
+            setTimeout(() => m.remove(), 4000);
+        }, i * 120); // Delay between drops
+    }
+}
+/* 🎨 SCRATCH CARD LOGIC */
+function initScratchCard() {
+    let canvas = document.getElementById("scratchCanvas");
+    let ctx = canvas.getContext("2d");
+    let isDrawing = false;
+    let scratchedOnce = false;
+
+    canvas.width = canvas.parentElement.offsetWidth;
+    canvas.height = canvas.parentElement.offsetHeight;
+
+    let gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, "#FFD700");
+    gradient.addColorStop(0.5, "#FFF192");
+    gradient.addColorStop(1, "#D4AF37");
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#000";
+    ctx.font = "bold 24px 'Hind Siliguri', sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("সালামি পেতে ঘষে দেখুন ✨", canvas.width / 2, canvas.height / 2);
+
+    function scratch(x, y) {
+        ctx.globalCompositeOperation = "destination-out";
+        ctx.beginPath();
+        ctx.arc(x, y, 25, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (!scratchedOnce) {
+            playSound('scratchSound');
+            startMoneyRain(); // Start money rain on first scratch
+            scratchedOnce = true;
+        }
+    }
+
+    canvas.addEventListener("mousedown", (e) => { isDrawing = true; scratch(e.offsetX, e.offsetY); });
+    canvas.addEventListener("mousemove", (e) => { if (isDrawing) scratch(e.offsetX, e.offsetY); });
+    canvas.addEventListener("mouseup", () => { isDrawing = false; });
+    canvas.addEventListener("mouseleave", () => { isDrawing = false; });
+
+    canvas.addEventListener("touchstart", (e) => {
+        isDrawing = true;
+        let rect = canvas.getBoundingClientRect();
+        scratch(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
+    });
+    canvas.addEventListener("touchmove", (e) => {
+        if (isDrawing) {
+            e.preventDefault(); 
+            let rect = canvas.getBoundingClientRect();
+            scratch(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top);
+        }
+    }, { passive: false });
+    canvas.addEventListener("touchend", () => { isDrawing = false; });
+}
+
+function nextFinal(){
+playSound('swooshSound'); 
+
+let phoneDiv = document.querySelector('.phone');
+phoneDiv.style.transition = "all 2s ease-in-out";
+phoneDiv.style.transform = "scale(1.2) translateY(-20px)";
+phoneDiv.style.opacity = "0";
+
+setTimeout(() => {
+    phoneDiv.style.display = "none"; 
+    
+    playSound('magicSound'); 
+
+    let name = document.getElementById("name").value.trim();
+    let finalScreen = document.getElementById("finalFull");
+    finalScreen.style.display = "flex";
+
+    let eqBars = document.getElementById("eqBars");
+    finalScreen.appendChild(eqBars);
+    eqBars.style.bottom = "25px";
+    eqBars.style.zIndex = "100";
+
+    createEidEnvironment("finalFull", 25);
+
+    const salamiAmounts = [100, 200, 500, 1000, 2000];
+    const receivedSalami = salamiAmounts[Math.floor(Math.random() * salamiAmounts.length)];
+    document.getElementById("salamiText").innerHTML = `💌 ৳${receivedSalami} সেলামি! 🎉`;
+
+    setTimeout(() => { 
+        finalScreen.classList.add("show"); 
+        initScratchCard(); 
+    }, 50);
+
+    createParticles();
+
+    var duration = 4 * 1000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
+    function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+    var interval = setInterval(function() {
+        var timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) { return clearInterval(interval); }
+        var particleCount = 50 * (timeLeft / duration);
+        confetti(Object.assign({}, defaults, { particleCount,
+            origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+            colors: ['#FFD700', '#caa400', '#ffffff']
+        }));
+        confetti(Object.assign({}, defaults, { particleCount,
+            origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+            colors: ['#FFD700', '#caa400', '#ffffff']
+        }));
+    }, 250);
+
+    let currentUrl = window.location.href; 
+    let message = `${name} তোমাকে পবিত্র ঈদুল ফিতরের শুভেচ্ছা পাঠিয়েছে! 🌙✨\nসাথে পাঠিয়েছে ৳${receivedSalami} ঈদ সেলামি! 🎁\n\nউপহারটি দেখতে লিংকে ক্লিক করো: ${currentUrl}`;
+    document.getElementById("waShare").href = `whatsapp://send?text=${encodeURIComponent(message)}`;
+
+}, 2500); 
+}
+
+</script>
+
+</body>
+</html>
